@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 31, 2024 at 04:33 AM
+-- Generation Time: May 13, 2024 at 10:47 AM
 -- Server version: 5.7.31
--- PHP Version: 7.4.9
+-- PHP Version: 7.3.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -38,14 +38,14 @@ CREATE TABLE IF NOT EXISTS `distribution` (
   `date_update` date DEFAULT NULL,
   `status` int(5) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `distribution`
 --
 
 INSERT INTO `distribution` (`id`, `user_id`, `image`, `type`, `descriptions`, `date_added`, `date_update`, `status`) VALUES
-(2, 1, '../upload/fruit-7.jpg', 2, 'Good day CICCO MEMBER', '2024-01-29', NULL, 1);
+(1, 1, '../upload/preparing.jpeg', 2, 'test', '2024-02-14', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -61,15 +61,14 @@ CREATE TABLE IF NOT EXISTS `items` (
   `user_to` int(10) NOT NULL,
   `status` int(5) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `items`
 --
 
 INSERT INTO `items` (`id`, `user_id`, `dist_id`, `user_to`, `status`) VALUES
-(1, 1, 1, 2, 1),
-(2, 1, 2, 6, 1);
+(1, 1, 1, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -116,7 +115,7 @@ CREATE TABLE IF NOT EXISTS `loan_details` (
   `reason` varchar(2000) DEFAULT NULL,
   `status` int(5) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -173,14 +172,19 @@ CREATE TABLE IF NOT EXISTS `members_data` (
   `approved_by` int(5) DEFAULT NULL,
   `approved_date` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `members_data`
 --
 
 INSERT INTO `members_data` (`id`, `user_id`, `civil_status`, `sex`, `height`, `weight`, `phone_num`, `residence`, `place_of_birth`, `date_of_birth`, `age`, `father_name`, `father_birth`, `mother_name`, `mother_birth`, `educ_attain`, `school`, `date_grad`, `properties`, `emp_business`, `tin`, `tin_front`, `tin_back`, `ctc`, `arb`, `num_of_dep`, `elementary`, `hs`, `college`, `benifi_primary`, `benifi_primary_birth`, `benifi_secondary`, `benifi_secondary_birth`, `spouse_name`, `relig_aff`, `crime`, `spouse_placeof_birth`, `spouse_birth`, `spouse_age`, `spouse_father_name`, `spouse_mother_name`, `p1_name_add`, `p2_name_add`, `date_apply`, `approved_by`, `approved_date`) VALUES
-(1, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-01-27 08:38:08', NULL, NULL);
+(1, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-02-08 12:46:16', NULL, NULL),
+(2, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-02-08 13:34:22', NULL, NULL),
+(3, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-02-12 13:50:11', NULL, NULL),
+(4, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-02-12 14:34:11', NULL, NULL),
+(5, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-02-12 14:35:46', NULL, NULL),
+(6, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-02-12 14:36:17', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -198,7 +202,7 @@ CREATE TABLE IF NOT EXISTS `messages` (
   `added_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `status` int(5) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -215,7 +219,7 @@ CREATE TABLE IF NOT EXISTS `msg_detail` (
   `last_sent` datetime DEFAULT NULL,
   `status` int(5) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -260,23 +264,27 @@ CREATE TABLE IF NOT EXISTS `users` (
   `lastname` varchar(200) NOT NULL,
   `username` varchar(200) NOT NULL,
   `password` varchar(500) NOT NULL,
-  `salt` varchar(20) NOT NULL,
   `added_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `contact_no` varchar(20) NOT NULL,
-  `image` varchar(1000) DEFAULT NULL,
+  `image` varchar(1000) CHARACTER SET latin1 DEFAULT NULL,
   `mycode` int(6) DEFAULT NULL,
   `reason` varchar(2000) DEFAULT NULL,
   `role` int(5) NOT NULL,
   `status` int(5) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `firstname`, `middle_name`, `lastname`, `username`, `password`, `salt`, `added_at`, `contact_no`, `image`, `mycode`, `reason`, `role`, `status`) VALUES
-(1, 'CIACO', 'CIACO', 'CIACO', 'CIACO', '53ad6e58633796b766e9bb5e6d31fe088eb94b6fe36c0abafd498d45fa070e3a', 'o“¥AvJ%#lÈsW–¬3', '2024-01-27 08:38:08', '09060033167', '../upload/pogi.jpg', 549, NULL, 1, 1);
+INSERT INTO `users` (`id`, `firstname`, `middle_name`, `lastname`, `username`, `password`, `added_at`, `contact_no`, `image`, `mycode`, `reason`, `role`, `status`) VALUES
+(1, 'Elmar', '', 'Malazarte', 'elmar.malazarte', '$2y$10$4awr2vcpVbICzANv5MrRPeKLINO7Dh/CBXRkDCrKS.NjnUm2ACpDu', '2024-02-08 12:46:16', '09272259203', '../upload/viber_image_2023-12-06_10-51-55-271.jpg', 7779, NULL, 1, 1),
+(2, 'Xena Fitzpatrick', 'Ingrid Macias', 'Hiram Hill', 'elmar', '6c111cb1d9e320aa348970073e509b33f922a1f14efb5da34aba71aefbde81f6', '2024-02-08 13:34:22', '09518768325', NULL, 898, '', 2, 3),
+(3, 'Kitra Hester', 'Olivia Justice', 'Xyla Stevenson', 'ciaco123', '$2y$10$4awr2vcpVbICzANv5MrRPeKLINO7Dh/CBXRkDCrKS.NjnUm2ACpDu', '2024-02-12 13:50:11', '09272258421', NULL, 0, NULL, 2, 3),
+(4, 'Hayley', 'Zorita Montgomery', 'Craft', 'noxyfigicu', '$2y$10$Qzc85S4kqFD/18aXFVYS7uXd6JXD1mf9irQlE6T8V7f5gDv7eOyge', '2024-02-12 14:34:11', '214', NULL, NULL, NULL, 2, NULL),
+(5, 'Georgia', 'Sonia Warner', 'Smith', 'bagofucyp', '$2y$10$z.XM8MauPpYSGbBaV/7LoeRn3xMdz3G685rYDVShbHYnd9h9fkVSu', '2024-02-12 14:35:46', '752', NULL, 0, NULL, 1, NULL),
+(6, 'Virginia Mcmahon', 'Melinda Spears', 'Libby Deleon', 'fiwys', '$2y$10$4gnPBU1hV9ij3xKaZol52e9xwSZZCbuQTH1GTx2gvNbprKy2opkYu', '2024-02-12 14:36:17', '09254875455', NULL, 0, NULL, 2, 1);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
